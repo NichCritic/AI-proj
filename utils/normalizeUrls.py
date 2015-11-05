@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
 
 	with open('index.txt', 'w') as f:
-		f.write('\n'.join([l+' '+f for l, f in output_data]))
+		f.write('\n'.join([f+' '+l for l, f in output_data]))
 	#print(generate_url(0, 'test.jpg'))
 	# print(generate_url(1, 'test.jpg'))
 	# print(generate_url(26, 'test.jpg'))
