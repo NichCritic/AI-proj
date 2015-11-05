@@ -1,0 +1,1 @@
+caffe train -solver specs/solver.prototxt -weights models/bvlc_reference_caffenet.caffemodel -gpu 0
