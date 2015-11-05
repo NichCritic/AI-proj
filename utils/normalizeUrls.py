@@ -33,18 +33,24 @@ if __name__ == '__main__':
 	mypath = '../data/'
 	output_data = []
 	f = []
-	for (dirpath, dirnames, filenames) in os.walk(mypath):
-		#print(filenames)
-		for i, afile in enumerate(filenames):
+	# for (dirpath, dirnames, filenames) in os.walk(mypath):
+	# 	#print(filenames)
+	# 	for i, afile in enumerate(filenames):
 
-			print(i)
-			print(afile)
-			url = generate_url(i, afile)
-			print(url)
-			os.rename(os.path.join(dirpath, afile), os.path.join(dirpath, ''+url))
-			dirname = dirpath.split('/')[-1]
-			output_data.append((dirname, url))
-			
+	# 		print(i)
+	# 		print(afile)
+	# 		url = generate_url(i, afile)
+	# 		print(url)
+	# 		os.rename(os.path.join(dirpath, afile), os.path.join(dirpath, ''+url))
+	# 		dirname = dirpath.split('/')[-1]
+	# 		output_data.append((dirname, url))
+
+
+	for dirpath, dirnames, filenames in os.walk(mypath):
+		for filen in filenames:
+			label = dirpath.split('/')[-1]
+			if(filen != 'index.txt'):
+				output_data.append((label, './data/'+label+'/'+filen))			
 
 	random.shuffle(output_data)
 
