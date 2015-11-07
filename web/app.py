@@ -14,6 +14,8 @@ from PIL import Image
 import cStringIO as StringIO
 import urllib
 import exifutil
+import sys
+import traceback
 
 import caffe
 
@@ -176,7 +178,7 @@ class ImagenetClassifier(object):
             return (True, meta, [], '%.3f' % (endtime - starttime))
 
         except Exception as err:
-            logging.info('Classification error: %s', err)
+            logging.error(err, exc_info=True)
             return (False, 'Something went wrong when classifying the '
                            'image. Maybe try another one?')
 
