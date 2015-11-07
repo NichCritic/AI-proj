@@ -111,7 +111,7 @@ class ImagenetClassifier(object):
         if not os.path.exists(val):
             raise Exception(
                 "File for {} is missing. Should be at: {}".format(key, val))
-    default_args['image_dim'] = 227
+    default_args['image_dim'] = 256
     default_args['raw_scale'] = 255.
 
     def __init__(self, model_def_file, pretrained_model_file, mean_file,
