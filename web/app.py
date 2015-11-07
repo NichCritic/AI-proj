@@ -115,7 +115,7 @@ class ImagenetClassifier(object):
     default_args['raw_scale'] = 255.
 
     def __init__(self, model_def_file, pretrained_model_file, mean_file,
-                 raw_scale, class_labels_file, bet_file, image_dim, gpu_mode):
+                 raw_scale, class_labels_file, image_dim, gpu_mode):
         logging.info('Loading net and associated files...')
         if gpu_mode:
             caffe.set_mode_gpu()
@@ -137,11 +137,11 @@ class ImagenetClassifier(object):
             ])
         self.labels = labels_df.sort('synset_id')['name'].values
 
-        self.bet = cPickle.load(open(bet_file))
+        # self.bet = cPickle.load(open(bet_file))
         # A bias to prefer children nodes in single-chain paths
         # I am setting the value to 0.1 as a quick, simple model.
         # We could use better psychological models here...
-        self.bet['infogain'] -= np.array(self.bet['preferences']) * 0.1
+        # self.bet['infogain'] -= np.array(self.bet['preferences']) * 0.1
 
     def classify_image(self, image):
         try:
@@ -161,17 +161,17 @@ class ImagenetClassifier(object):
             logging.info('result: %s', str(meta))
 
             # Compute expected information gain
-            expected_infogain = np.dot(
-                self.bet['probmat'], scores[self.bet['idmapping']])
-            expected_infogain *= self.bet['infogain']
+            # expected_infogain = np.dot(
+                # self.bet['probmat'], scores[self.bet['idmapping']])
+            # expected_infogain *= self.bet['infogain']
 
             # sort the scores
-            infogain_sort = expected_infogain.argsort()[::-1]
-            bet_result = [(self.bet['words'][v], '%.5f' % expected_infogain[v])
-                          for v in infogain_sort[:5]]
-            logging.info('bet result: %s', str(bet_result))
+            # infogain_sort = expected_infogain.argsort()[::-1]
+            # bet_result = [(self.bet['words'][v], '%.5f' % expected_infogain[v])
+                          # for v in infogain_sort[:5]]
+            # logging.info('bet result: %s', str(bet_result))
 
-            return (True, meta, bet_result, '%.3f' % (endtime - starttime))
+            return (True, meta, [], '%.3f' % (endtime - starttime))
 
         except Exception as err:
             logging.info('Classification error: %s', err)
