@@ -105,7 +105,7 @@ class ImagenetClassifier(object):
         'mean_file': (
             '{}/mean/imagenet_mean.binaryproto'.format(REPO_DIRNAME)),
         'class_labels_file': (
-            '{}/data/labels.txt'.format(REPO_DIRNAME))
+            '{}/data/label.txt'.format(REPO_DIRNAME))
     }
     for key, val in default_args.iteritems():
         if not os.path.exists(val):
