@@ -17,7 +17,7 @@ import exifutil
 
 import caffe
 
-REPO_DIRNAME = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/../..')
+REPO_DIRNAME = '.'
 UPLOAD_FOLDER = '/tmp/caffe_demos_uploads'
 ALLOWED_IMAGE_EXTENSIONS = set(['png', 'bmp', 'jpg', 'jpe', 'jpeg', 'gif'])
 
@@ -99,15 +99,13 @@ def allowed_file(filename):
 class ImagenetClassifier(object):
     default_args = {
         'model_def_file': (
-            '{}/models/bvlc_reference_caffenet/deploy.prototxt'.format(REPO_DIRNAME)),
+            '{}/specs/deploy.prototxt'.format(REPO_DIRNAME)),
         'pretrained_model_file': (
-            '{}/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'.format(REPO_DIRNAME)),
+            '{}/models/bvlc_reference_caffenet.caffemodel'.format(REPO_DIRNAME)),
         'mean_file': (
-            '{}/python/caffe/imagenet/ilsvrc_2012_mean.npy'.format(REPO_DIRNAME)),
+            '{}/mean/imagenet_mean.binaryproto'.format(REPO_DIRNAME)),
         'class_labels_file': (
-            '{}/data/ilsvrc12/synset_words.txt'.format(REPO_DIRNAME)),
-        'bet_file': (
-            '{}/data/ilsvrc12/imagenet.bet.pickle'.format(REPO_DIRNAME)),
+            '{}/data/labels'.format(REPO_DIRNAME))
     }
     for key, val in default_args.iteritems():
         if not os.path.exists(val):
