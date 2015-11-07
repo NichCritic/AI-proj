@@ -17,7 +17,7 @@ import exifutil
 
 import caffe
 
-REPO_DIRNAME = '.'
+REPO_DIRNAME = '..'
 UPLOAD_FOLDER = '/tmp/caffe_demos_uploads'
 ALLOWED_IMAGE_EXTENSIONS = set(['png', 'bmp', 'jpg', 'jpe', 'jpeg', 'gif'])
 
@@ -105,7 +105,7 @@ class ImagenetClassifier(object):
         'mean_file': (
             '{}/mean/imagenet_mean.binaryproto'.format(REPO_DIRNAME)),
         'class_labels_file': (
-            '{}/data/labels'.format(REPO_DIRNAME))
+            '{}/data/labels.txt'.format(REPO_DIRNAME))
     }
     for key, val in default_args.iteritems():
         if not os.path.exists(val):
