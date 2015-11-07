@@ -17,7 +17,7 @@ import exifutil
 
 import caffe
 
-REPO_DIRNAME = '..'
+REPO_DIRNAME = '.'
 UPLOAD_FOLDER = '/tmp/caffe_demos_uploads'
 ALLOWED_IMAGE_EXTENSIONS = set(['png', 'bmp', 'jpg', 'jpe', 'jpeg', 'gif'])
 
@@ -117,15 +117,13 @@ class ImagenetClassifier(object):
     def __init__(self, model_def_file, pretrained_model_file, mean_file,
                  raw_scale, class_labels_file, image_dim, gpu_mode):
         logging.info('Loading net and associated files...')
-        if gpu_mode:
-            caffe.set_mode_gpu()
-        else:
-            caffe.set_mode_cpu()
+        
+        caffe.set_mode_cpu()
         self.net = caffe.Classifier(
             model_def_file, pretrained_model_file,
             image_dims=(image_dim, image_dim), raw_scale=raw_scale,
-            mean=np.load(mean_file).mean(1).mean(1), channel_swap=(2, 1, 0)
-        )
+            mean=np.load(mean_file).mean(1).mean(1), channel_swap=(2, 1, 0), gpu=false)
+        
 
         with open(class_labels_file) as f:
             labels_df = pd.DataFrame([
