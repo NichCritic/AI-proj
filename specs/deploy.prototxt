@@ -21,17 +21,7 @@ layers {
       type: "constant"
       value: 0
     }
-  }
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  
-  
+  } 
 }
 layers {
   name: "relu1"
