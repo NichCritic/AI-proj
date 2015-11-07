@@ -258,14 +258,14 @@ layers {
   }
 }
 layers {
-  name: "fc8_flickr"
+  name: "fc8_anime"
   type: INNER_PRODUCT
   bottom: "fc7"
   top: "fc8_flickr"
   # lr_mult is set to higher than for other layerss, because this layers is starting from random while the others are already trained
   
   inner_product_param {
-    num_output: 20
+    num_output: 2
     weight_filler {
       type: "gaussian"
       std: 0.01
