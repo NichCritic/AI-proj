@@ -126,7 +126,7 @@ class ImagenetClassifier(object):
         self.net = caffe.Classifier(
             model_def_file, pretrained_model_file,
             image_dims=(image_dim, image_dim), raw_scale=raw_scale,
-            mean=mean_arr[0], channel_swap=(2, 1, 0), gpu=false)
+            mean=mean_arr[0], channel_swap=(2, 1, 0), gpu=False)
         
 
         with open(class_labels_file) as f:
