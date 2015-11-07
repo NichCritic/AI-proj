@@ -56,14 +56,7 @@ layers {
   type: CONVOLUTION
   bottom: "norm1"
   top: "conv2"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   convolution_param {
     num_output: 256
     pad: 2
@@ -112,14 +105,7 @@ layers {
   type: CONVOLUTION
   bottom: "norm2"
   top: "conv3"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   convolution_param {
     num_output: 384
     pad: 1
@@ -145,14 +131,7 @@ layers {
   type: CONVOLUTION
   bottom: "conv3"
   top: "conv4"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   convolution_param {
     num_output: 384
     pad: 1
@@ -179,14 +158,7 @@ layers {
   type: CONVOLUTION
   bottom: "conv4"
   top: "conv5"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   convolution_param {
     num_output: 256
     pad: 1
@@ -224,14 +196,7 @@ layers {
   type: INNER_PRODUCT
   bottom: "pool5"
   top: "fc6"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   inner_product_param {
     num_output: 4096
     weight_filler {
@@ -264,15 +229,7 @@ layers {
   type: INNER_PRODUCT
   bottom: "fc6"
   top: "fc7"
-  # Note that lr_mult can be set to 0 to disable any fine-tuning of this, and any other, layers
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  
   inner_product_param {
     num_output: 4096
     weight_filler {
@@ -306,14 +263,7 @@ layers {
   bottom: "fc7"
   top: "fc8_flickr"
   # lr_mult is set to higher than for other layerss, because this layers is starting from random while the others are already trained
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
+  
   inner_product_param {
     num_output: 20
     weight_filler {
