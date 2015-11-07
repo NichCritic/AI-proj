@@ -99,7 +99,7 @@ def allowed_file(filename):
 class ImagenetClassifier(object):
     default_args = {
         'model_def_file': (
-            '{}/specs/train_val.prototxt'.format(REPO_DIRNAME)),
+            '{}/specs/deploy.prototxt'.format(REPO_DIRNAME)),
         'pretrained_model_file': (
             '{}/models/specs_iter_5000.caffemodel'.format(REPO_DIRNAME)),
         'mean_file': (
