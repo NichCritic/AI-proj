@@ -22,7 +22,6 @@ data/sailor_moon/UH.jpg 2
 data/madoka/GF.jpg 1
 data/madoka/KN.jpg 1
 data/attack_on_titan/CCB.jpg 0
-data//A.txt -1
 data/attack_on_titan/EF.jpg 0
 data/attack_on_titan/WK.jpg 0
 data/sailor_moon/RU.jpg 2
@@ -2010,7 +2009,6 @@ data/attack_on_titan/PFC.jpg 0
 data/madoka/QG.jpg 1
 data/attack_on_titan/SJB.jpg 0
 data/madoka/PC.jpg 1
-data//B.txt -1
 data/attack_on_titan/SB.jpg 0
 data/attack_on_titan/CO.jpg 0
 data/attack_on_titan/YKB.jpg 0
