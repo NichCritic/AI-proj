@@ -1,0 +1,15 @@
+
+import rope.base.project
+from rope.base import libutils
+
+myproject = rope.base.project.Project(
+    'C:/Projects/python-ml-git/AI-proj/utils')
+#myproject.validate('C:/Projects/python-ml-git/AI-proj/utils/normalizeUrls.py')
+myproject.validate()
+ropy = libutils.path_to_resource(myproject, 'C:/Projects/python-ml-git/AI-proj/utils/normalizeUrls.py')
+
+from rope.refactor.extract import ExtractMethod
+changes = ExtractMethod(myproject, ropy, 542, 804).get_changes('rename_paths', similar=True)
+myproject.do(changes)
+
+myproject.close()

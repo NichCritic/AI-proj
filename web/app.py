@@ -18,6 +18,7 @@ import sys
 import traceback
 
 import caffe
+import json
 
 REPO_DIRNAME = '.'
 UPLOAD_FOLDER = '/tmp/caffe_demos_uploads'
@@ -31,6 +32,27 @@ app = flask.Flask(__name__)
 def index():
     return flask.render_template('index.html', has_result=False)
 
+
+@app.route('/classify_url_json')
+def classify_url_json():
+    imageurl = flask.request.args.get('imageurl', '')
+    try:
+        string_buffer = StringIO.StringIO(
+            urllib.urlopen(imageurl).read())
+        image = caffe.io.load_image(string_buffer)
+
+    except Exception as err:
+        # For any exception we encounter in reading the image, we will just
+        # not continue.
+        logging.info('URL Image open error: %s', err)
+        return flask.render_template(
+            'index.html', has_result=True,
+            result=(False, 'Cannot open image from URL.')
+        )
+
+    logging.info('Image: %s', imageurl)
+    result = app.clf.classify_image(image)
+    return json.dumps(result)
 
 @app.route('/classify_url', methods=['GET'])
 def classify_url():

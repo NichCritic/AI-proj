@@ -1,0 +1,4 @@
+
+import rope.base.project
+myproject = rope.base.project.Project('C:/Projects/python-ml-git/AI-proj/')
+myproject.close()

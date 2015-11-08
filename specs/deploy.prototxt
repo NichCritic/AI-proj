@@ -265,7 +265,7 @@ layers {
   # lr_mult is set to higher than for other layerss, because this layers is starting from random while the others are already trained
   
   inner_product_param {
-    num_output: 2
+    num_output: 3
     weight_filler {
       type: "gaussian"
       std: 0.01
