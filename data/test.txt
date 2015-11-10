@@ -637,7 +637,6 @@ data/sailor_moon/DT.jpg 2
 data/attack_on_titan/ZB.jpg 0
 data/attack_on_titan/TTB.jpg 0
 data/madoka/IIB.jpg 1
-data//A.txt -1
 data/attack_on_titan/LPB.jpg 0
 data/attack_on_titan/AE.jpg 0
 data/attack_on_titan/RJC.jpg 0
@@ -2689,7 +2688,6 @@ data/attack_on_titan/DZ.jpg 0
 data/attack_on_titan/PE.jpg 0
 data/sailor_moon/AV.jpg 2
 data/sailor_moon/RG.jpg 2
-data//B.txt -1
 data/attack_on_titan/XLC.jpg 0
 data/madoka/ZLB.jpg 1
 data/attack_on_titan/EE.jpg 0
