@@ -55,9 +55,9 @@ def write_index(mypath):
 	training_data = output_data[prop:]
 
 	with open('train.txt', 'w') as f:
-		f.write('\n'.join([f+' '+str(l) for l, f in output_data]))
+		f.write('\n'.join([f+' '+str(l) for l, f in training_data]))
 	with open('test.txt', 'w') as f:
-		f.write('\n'.join([f+' '+str(l) for l, f in output_data]))
+		f.write('\n'.join([f+' '+str(l) for l, f in test_data]))
 
 
 if __name__ == '__main__':
