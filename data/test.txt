@@ -706,7 +706,6 @@ data/attack_on_titan/FFC.jpg 0
 data/madoka/GGB.jpg 1
 data/sailor_moon/BI.jpg 2
 data/madoka/QJ.jpg 1
-data//B.txt -1
 data/attack_on_titan/QAB.jpg 0
 data/madoka/BGB.jpg 1
 data/attack_on_titan/BD.jpg 0
