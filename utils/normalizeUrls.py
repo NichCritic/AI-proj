@@ -49,7 +49,14 @@ def write_index(mypath):
 		i=i+1			
 
 	random.shuffle(output_data)
-	with open('index.txt', 'w') as f:
+
+	prop = math.floor(0.25*len(output_data))
+	test_data = output_data[:prop]
+	training_data = output_data[prop:]
+
+	with open('train.txt', 'w') as f:
+		f.write('\n'.join([f+' '+str(l) for l, f in output_data]))
+	with open('test.txt', 'w') as f:
 		f.write('\n'.join([f+' '+str(l) for l, f in output_data]))
 
 
