@@ -38,7 +38,7 @@ def rewrite_paths(mypath, prefix='', generate_url=generate_url):
 
 			if dirname != '':
 				os.rename(os.path.join(dirpath, afile), os.path.join(dirpath, prefix+url))
-				output_data.append((idx, dirname+'/'+prefix+url))
+				output_data.append((idx, 'data/'+dirname+'/'+prefix+url))
 		print(idx)
 		idx+=1
 	return output_data
