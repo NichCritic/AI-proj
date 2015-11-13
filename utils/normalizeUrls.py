@@ -25,38 +25,35 @@ def generate_url(i, url):
 def rewrite_paths(mypath, prefix='', generate_url=generate_url):
 	output_data = []
 	f = []
+	idx = -1
 	for (dirpath, dirnames, filenames) in os.walk(mypath):
-		#print(filenames)
+		dirname = dirpath.split('/')[-1]
+		print(dirname)
 		for i, afile in enumerate(filenames):
 
 			#print(i)
 			#print(afile)
 			url = generate_url(i, afile)
 			#print(url)
-			os.rename(os.path.join(dirpath, afile), os.path.join(dirpath, prefix+url))
-			dirname = dirpath.split('/')[-1]
-			output_data.append((dirname, url))
+
+			if dirname != '':
+				os.rename(os.path.join(dirpath, afile), os.path.join(dirpath, prefix+url))
+				output_data.append((idx, dirname+'/'+prefix+url))
+		print(idx)
+		idx+=1
 	return output_data
 
-def write_index(mypath):
-	i = -1
-	output_data = []
-	for dirpath, dirnames, filenames in os.walk(mypath):
-		for filen in filenames:
-			label = dirpath.split('/')[-1]
-			if(filen != 'index.txt'):
-				output_data.append((i, 'data/'+label+'/'+filen))
-		i=i+1			
-
+def write_index(output_data):
 	random.shuffle(output_data)
 
+	
 	prop = math.floor(0.25*len(output_data))
 	test_data = output_data[:prop]
 	training_data = output_data[prop:]
 
-	with open('train.txt', 'w') as f:
+	with open('../data/train.txt', 'w') as f:
 		f.write('\n'.join([f+' '+str(l) for l, f in training_data]))
-	with open('test.txt', 'w') as f:
+	with open('../data/test.txt', 'w') as f:
 		f.write('\n'.join([f+' '+str(l) for l, f in test_data]))
 
 
@@ -64,10 +61,10 @@ if __name__ == '__main__':
 
 	mypath = '../data/'
 	
-	
-	rewrite_paths(mypath, '')	
+	rewrite_paths(mypath, 'tmp')
+	pathlist = rewrite_paths(mypath, '')	
 
-	write_index(mypath)
+	write_index(pathlist)
 
 
 	
