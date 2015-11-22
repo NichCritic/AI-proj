@@ -125,7 +125,7 @@ class ImagenetClassifier(object):
         'model_def_file': (
             '{}/specs/deploy.prototxt'.format(REPO_DIRNAME)),
         'pretrained_model_file': (
-            '{}/models/plusmadoka3.caffemodel'.format(REPO_DIRNAME)),
+            '{}/models/v4.caffemodel'.format(REPO_DIRNAME)),
         'mean_file': (
             '{}/mean/imagenet_mean.binaryproto'.format(REPO_DIRNAME)),
         'class_labels_file': (
