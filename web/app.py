@@ -74,7 +74,7 @@ def classify_url():
     logging.info('Image: %s', imageurl)
     result = app.clf.classify_image(image)
     return flask.render_template(
-        'index.html', has_result=True, result=result, imagesrc=imageurl)
+        'classify.html', has_result=True, result=result, imagesrc=imageurl)
 
 
 @app.route('/classify_upload', methods=['POST'])
@@ -98,7 +98,7 @@ def classify_upload():
 
     result = app.clf.classify_image(image)
     return flask.render_template(
-        'index.html', has_result=True, result=result,
+        'classify.html', has_result=True, result=result,
         imagesrc=embed_image_html(image)
     )
 
